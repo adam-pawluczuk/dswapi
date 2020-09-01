@@ -1,0 +1,5 @@
+# Python cache directories
+__pycache__
+
+# Database file
+db.sqlite3
