@@ -1,0 +1,34 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+    <head>
+        <title>CSV view</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-3.4.1.min.css' %}" >
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+        <!-- Load jQuery before other libs. -->
+        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap-3.4.1.min.js' %}"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+        <script>
+            $(document).ready( function () {
+                $('#sw_table').DataTable();
+            } );
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Home</a>
+            <a href="/download" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update data</a>
+            <h1>CSV view</h1>
+            <div class="table-responsive">
+                {% render_table table %}
+            </div>
+        </div>
+    </body>
+</html>
